@@ -1,6 +1,6 @@
 name: "Parse CHANGELOG and extract bump version"
 description: "Parses the CHANGELOG to new version and returns the version."
-author: "SafeIntelligence"
+author: "Jernej Frank"
 
 inputs:
   changelog_template_url:
@@ -13,7 +13,7 @@ runs:
     - name: Checkout Action Repository (to access bump_version.sh and CHANGELOG_TEMPLATE.md)
       uses: actions/checkout@v4
       with:
-        repository: SafeIntelligence/update_changelog_get_semver
+        repository: jernejfrank/update_changelog_get_semver
         ref: main
         path: action_repo  # This places the action in a subdirectory
 

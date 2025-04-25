@@ -16,7 +16,7 @@ Add the following workflow to your `.github/workflows`:
 
 ```yaml
 - name: Update Changelog and Python Package
-uses: SafeIntelligence/update_changelog_get_semver@main
+uses: jernejfrank/update_changelog_get_semver@main
 
 - name: Show new version and release notes
 run: |
