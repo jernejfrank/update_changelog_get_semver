@@ -8,7 +8,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Removed (major)
-- migrated to public personal repo for now to have universal access
 
 ### Changed - breaking (major)
 
@@ -21,6 +20,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed (patch)
 
 ### Security (patch)
+
+
+
+## [1.0.0] - 25-04-2025
+
+### Removed (major)
+- migrated to public personal repo for now to have universal access
 
 
 
