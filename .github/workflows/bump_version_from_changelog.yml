@@ -1,0 +1,45 @@
+name: Bump Version and Update Changelog
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+            ref: ${{ github.head_ref }}
+            fetch-depth: 0
+
+      - name: Update Changelog
+        uses: SafeIntelligence/update_changelog_get_semver@main
+
+      - name: Show new version
+        run: |
+            echo "${{ env.new_version }}"
+
+      - name: Tag and Commit
+        env:
+            tag: "v${{ env.new_version }}"
+        run: |
+              git config --local user.email "github-actions[bot]@users.noreply.github.com"
+              git config --local user.name "github-actions[bot]"
+              git commit -a -m "Bump version to $tag"
+              git tag "$tag"
+              git push --atomic origin main "$tag"
+
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: "v${{ env.new_version }}"
+          release_notes: ${{ env.release_notes }}
+        run: |
+          gh release create "$tag" \
+              --repo="$GITHUB_REPOSITORY" \
+              --title="${tag#v}" \
+              --notes "$release_notes"
