@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed (major)
 
 ### Changed - breaking (major)
-- Renamed CHANGELOG.md -> CHANGELOG
+- Renamed CHANGELOG.md --> CHANGELOG
 
 ### Added (minor)
 

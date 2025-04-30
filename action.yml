@@ -36,7 +36,7 @@ runs:
 
     - name: Copy CHANGELOG back to main repo
       run: |
-        cp ./action_repo/CHANGELOG.md ./CHANGELOG.md 
+        cp ./action_repo/CHANGELOG.md ./CHANGELOG
       shell: bash
     
     - name: Cleanup temp files
