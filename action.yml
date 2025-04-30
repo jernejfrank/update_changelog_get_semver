@@ -19,7 +19,7 @@ runs:
 
     - name: Copy CHANGELOG to action repo
       run: |
-        cp CHANGELOG.md ./action_repo/CHANGELOG.md
+        cp CHANGELOG ./action_repo/CHANGELOG.md
       shell: bash
 
     - name: Make version script executable

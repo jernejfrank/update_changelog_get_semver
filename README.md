@@ -6,7 +6,7 @@ It updates the `CHANGELOG.md` file and outputs the correct version bump to updat
 project with, ensuring a structured release process.
 
 ## 🚀 Features
-- 📜 **Extracts the next version** from `CHANGELOG.md`.
+- 📜 **Extracts the next version** from file named `CHANGELOG`.
 - 📄 **Prepares release notes** that can be added to release action.
 
 ---
