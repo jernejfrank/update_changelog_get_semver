@@ -36,8 +36,21 @@ as the env variable ``new_version`` and latest release notes as the env variable
 ## 📜 CHANGELOG Template
 
 The action uses a template to structure your CHANGELOG.md.
-You can customize it in your repository or use the default. The script searches for the keywords:
+You can either rely on the bundled default, or provide your own template file from
+your repository via the `changelog_template` input (the bundled default is used as a
+fallback when the input is not set):
+
+```yaml
+- name: Update Changelog and Python Package
+uses: jernejfrank/update_changelog_get_semver@main
+with:
+    changelog_template: .github/CHANGELOG_TEMPLATE.md
+```
+
+The script searches for the keywords:
 `major`.`minor`.`patch` to extract the correct version bump according to [semantic versioning](https://semver.org).
+Your custom template must keep a `## [Unreleased]` heading and `###` sections whose names
+contain one of those keywords.
 
 ```
 # Changelog

@@ -3,8 +3,8 @@ description: "Parses the CHANGELOG to new version and returns the version."
 author: "Jernej Frank"
 
 inputs:
-  changelog_template_url:
-    description: "URL to the CHANGELOG_TEMPLATE.md in the action's repository"
+  changelog_template:
+    description: "Path (relative to your repository root) to a CHANGELOG template file to use instead of the action's bundled default."
     required: false
 
 runs:
@@ -20,6 +20,21 @@ runs:
     - name: Copy CHANGELOG to action repo
       run: |
         cp CHANGELOG ./action_repo/CHANGELOG.md
+      shell: bash
+
+    - name: Use custom CHANGELOG template (falls back to bundled default)
+      run: |
+        if [ -n "${{ inputs.changelog_template }}" ]; then
+          if [ -f "${{ inputs.changelog_template }}" ]; then
+            echo "Using custom CHANGELOG template: ${{ inputs.changelog_template }}"
+            cp "${{ inputs.changelog_template }}" ./action_repo/CHANGELOG_TEMPLATE.md
+          else
+            echo "Error: changelog_template '${{ inputs.changelog_template }}' not found in repository"
+            exit 1
+          fi
+        else
+          echo "No changelog_template provided, using the action's bundled CHANGELOG_TEMPLATE.md"
+        fi
       shell: bash
 
     - name: Make version script executable

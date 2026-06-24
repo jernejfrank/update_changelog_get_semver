@@ -38,8 +38,9 @@ if [ ! -f "CHANGELOG_old.md" ]; then
     touch CHANGELOG_old.md
 fi
 
-# Removes template to only get user input
-awk 'NR > 7' "CHANGELOG_unreleased.md" >temp_changelog.md \
+# Removes template header to only get user input (keep from [Unreleased] onward,
+# so this works regardless of how many header lines a custom template has)
+awk 'found || /^## \[Unreleased\]/ {found=1; print}' "CHANGELOG_unreleased.md" >temp_changelog.md \
   && mv temp_changelog.md "CHANGELOG_unreleased.md"
 
 # Process the changelog to remove empty sections
