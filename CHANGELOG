@@ -14,13 +14,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added (minor)
 
 ### Changed - backward compatible (minor)
-- Renamed changelog_template_url (was no-op) to changelog_template, it now actually accepts a file and uses it as a template substitute
 
 ### Deprecated (minor)
 
 ### Fixed (patch)
 
 ### Security (patch)
+
+
+
+## [2.1.0] - 25-06-2026
+
+### Changed - backward compatible (minor)
+- Renamed changelog_template_url (was no-op) to changelog_template, it now actually accepts a file and uses it as a template substitute
 
 
 
